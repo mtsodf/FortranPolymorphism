@@ -14,7 +14,9 @@ module VectorAbs_class
             ! procedure, public :: Move => MoveSub
             ! procedure(GetPointerSub), public, deferred :: GetPointer
             ! procedure(SetValueSub), public, deferred :: SetValue
+            procedure(CreateSub), public, deferred :: Create
             procedure(SetSub), public, deferred :: Set
+            procedure(Norm2Sub), public, deferred :: Norm2
 
     end type VectorAbs
 
@@ -39,6 +41,17 @@ module VectorAbs_class
             
         ! end subroutine SetValueSub
 
+        subroutine CreateSub(this, size, localSize)
+            import :: VectorAbs
+            implicit none
+
+            class(VectorAbs) :: this
+            integer :: size
+            integer, optional:: localSize
+            
+        end subroutine CreateSub
+
+
         subroutine SetSub(this, value)
             import :: VectorAbs
             implicit none
@@ -47,6 +60,15 @@ module VectorAbs_class
             real(8) :: value
             
         end subroutine SetSub
+
+        subroutine Norm2Sub(this, norm)
+            import :: VectorAbs
+            implicit none
+
+            class(VectorAbs) :: this
+            real(8) :: norm
+
+        end subroutine Norm2Sub
 
     end interface
 
