@@ -1,5 +1,5 @@
 FILE1=Main.F90 
-FILE2=VectorAbs_class.F90 VectorPetsc_class.F90
+FILE2=VectorAbs_class.F90 VectorPetsc_class.F90 VectorFortran_class.F90
 EXEC=main
 
 main: Main.F90 veclib.a 
