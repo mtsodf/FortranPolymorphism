@@ -4,6 +4,7 @@
 
 
       use VectorAbs_class
+      use VectorPetsc_class, only: VectorPetsc
 
       implicit none
 #include <petsc/finclude/petscsys.h>
@@ -19,6 +20,9 @@
        PetscReal        norm,rdot
        Vec              x,y,w
        PetscOptions     options
+       type(VectorPetsc) :: aVec
+
+       call aVec%Set(2.0d0)
 
        n     = 20
        one   = 1.0
